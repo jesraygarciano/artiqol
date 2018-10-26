@@ -17,6 +17,10 @@ const apolloClient = new ApolloClient({
     cache: new InMemoryCache()
 })
 
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient
+})
+
 // install the vue plugin
 Vue.use(VueApollo)
 
@@ -26,5 +30,8 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  apolloProvider,
+  template: '<App/>',
+  components: { App },
   render: h => h(App)
 })
