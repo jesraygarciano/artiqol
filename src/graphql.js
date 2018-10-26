@@ -13,3 +13,22 @@ mutation SignupMutation($username: String!, $email: String!, $password: String!)
     }
 }
 `
+
+export const LOGIN_MUTATION = gql`
+    mutation LoginMutation($email: String!, $password: String!) {
+        login(
+            email: $email,
+            password: $password
+        )
+    }
+`
+
+export const ALL_USERS_QUERY = gql`
+    query AllUsersQuery {
+        allUsers {
+            id
+            username
+            email
+        }
+    }
+`
